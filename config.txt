@@ -1,4 +1,4 @@
 ; This file controls various aspects of your configuration.
 
 [Database Parameters]
-database_url: mysql+pymysql://root:qwerty@localhost/metacog_nlp
+database_url: mysql+pymysql://root:qwerty@localhost/metacog-nlp-db
