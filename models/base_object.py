@@ -25,13 +25,13 @@ OBLIGATORY_FIELD_ERROR_CODE = '23502'
 
 
 def serialize(value, **options):
-    if isinstance(value, Enum):
-        return value.name
-    elif isinstance(value, datetime):
-        return value.isoformat()+"Z"
-    # The two 'elif' blocks for DateTimeRange have been removed.
-    else:
-        return value
+    if isinstance(value, Enum):
+        return value.name
+    elif isinstance(value, datetime):
+        return value.isoformat()+"Z"
+    else:
+        return value
+
 
 class BaseObject():
     id = Column(BigInteger,
