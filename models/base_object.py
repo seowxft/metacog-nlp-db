@@ -4,7 +4,7 @@ from datetime import datetime
 from decimal import Decimal, InvalidOperation
 from pprint import pprint
 import re
-from psycopg2.extras import DateTimeRange
+#from psycopg2.extras import DateTimeRange
 from sqlalchemy import CHAR,\
                        BigInteger,\
                        Column,\
@@ -25,24 +25,13 @@ OBLIGATORY_FIELD_ERROR_CODE = '23502'
 
 
 def serialize(value, **options):
-    if isinstance(value, Enum):
-        return value.name
-    elif isinstance(value, datetime):
-        return value.isoformat()+"Z"
-    elif isinstance(value, DateTimeRange):
-        return {
-            'start': value.lower,
-            'end': value.upper
-        }
-    elif isinstance(value, list)\
-            and len(value) > 0\
-            and isinstance(value[0], DateTimeRange):
-        return list(map(lambda d: {'start': d.lower,
-                                   'end': d.upper},
-                        value))
-    else:
-        return value
-
+    if isinstance(value, Enum):
+        return value.name
+    elif isinstance(value, datetime):
+        return value.isoformat()+"Z"
+    # The two 'elif' blocks for DateTimeRange have been removed.
+    else:
+        return value
 
 class BaseObject():
     id = Column(BigInteger,
