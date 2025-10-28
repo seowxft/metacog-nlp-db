@@ -135,7 +135,7 @@ class BaseObject():
 
     def errors(self):
         errors = ApiErrors()
-        data = self.__class__.__table__.columns._data
+        data = self.__class__.__table__.c
         for key in data.keys():
             col = data[key]
             val = getattr(self, key)
