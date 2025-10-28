@@ -194,7 +194,7 @@ class BaseObject():
     @staticmethod
     def restize_data_error(e):
         if e.args and len(e.args) > 0 and e.args[0].startswith('(psycopg2.DataError) value too long for type'):
-            max_length = re.search('\(psycopg2.DataError\) value too long for type (.*?) varying\((.*?)\)', e.args[0], re.IGNORECASE).group(2)
+            max_length = re.search(r'\(psycopg2.DataError\) value too long for type (.*?) varying\((.*?)\)', e.args[0], re.IGNORECASE).group(2)
             return ['global', "La valeur d'une entrée est trop longue (max " + max_length + ")"]
         else:
             return BaseObject.restize_global_error(e)
@@ -202,13 +202,13 @@ class BaseObject():
     @staticmethod
     def restize_integrity_error(e):
         if hasattr(e, 'orig') and hasattr(e.orig, 'pgcode') and e.orig.pgcode == DUPLICATE_KEY_ERROR_CODE:
-            field = re.search('Key \((.*?)\)=', str(e._message), re.IGNORECASE).group(1)
+            field = re.search(r'Key \((.*?)\)=', str(e._message), re.IGNORECASE).group(1)
             return [field, 'Une entrée avec cet identifiant existe déjà dans notre base de données']
         elif hasattr(e, 'orig') and hasattr(e.orig, 'pgcode') and e.orig.pgcode == NOT_FOUND_KEY_ERROR_CODE:
-            field = re.search('Key \((.*?)\)=', str(e._message), re.IGNORECASE).group(1)
+            field = re.search(r'Key \((.*?)\)=', str(e._message), re.IGNORECASE).group(1)
             return [field, 'Aucun objet ne correspond à cet identifiant dans notre base de données']
         elif hasattr(e, 'orig') and hasattr(e.orig, 'pgcode') and e.orig.pgcode == OBLIGATORY_FIELD_ERROR_CODE:
-            field = re.search('column "(.*?)"', e.orig.pgerror, re.IGNORECASE).group(1)
+            field = re.search(r'column "(.*?)"', e.orig.pgerror, re.IGNORECASE).group(1)
             return [field, 'Ce champ est obligatoire']
         else:
             return BaseObject.restize_global_error(e)
