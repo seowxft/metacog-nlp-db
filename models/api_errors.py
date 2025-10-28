@@ -13,14 +13,14 @@ class ApiErrors(Exception):
                                 else [error]
 
     def checkDate(self, field, value):
-        if (isinstance(value, str) ) and re.search('^\d{4}-\d{2}-\d{2}( \d{2}:\d{2}(:\d{2})?)?$', value):
+        if (isinstance(value, str) ) and re.search(r'^\d{4}-\d{2}-\d{2}( \d{2}:\d{2}(:\d{2})?)?$', value):
             return True
         else:
             self.addError(field, 'Format de date incorrect')
 
     def checkFloat(self, field, value):
         if isinstance(value, float) or \
-           ((isinstance(value, str)) and re.search('^\d+(\.\d*|)$', value)):
+           ((isinstance(value, str)) and re.search(r'^\d+(\.\d*|)$', value)):
             return True
         else:
             self.addError(field, 'La valeur doit etre un nombre (optionnellement a virgule).')
