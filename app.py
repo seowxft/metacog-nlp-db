@@ -23,8 +23,23 @@ app  = Flask(__name__)
 # --- DB configuration ----
 # -------------------------
 
-#app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
-app.config['SQLALCHEMY_DATABASE_URI'] = config.get('Database Parameters','database_url')
+# 1. Try to get the production (Scalingo) DATABASE_URL
+database_url = os.environ.get('DATABASE_URL')
+
+# 2. If the variable is NOT found (we are running locally), 
+#    then fall back to your local config file.
+if not database_url:
+    print("INFO: DATABASE_URL environment variable not set. Falling back to local config.txt.")
+    database_url = config.get('Database Parameters','database_url')
+else:
+    # 3. If the variable IS found (we are on Scalingo),
+    #    make sure it uses the 'mysql+pymysql' driver.
+    print("INFO: Found DATABASE_URL. Configuring for production.")
+    if database_url.startswith('mysql://'):
+        database_url = database_url.replace('mysql://', 'mysql+pymysql://', 1)
+
+# 4. Finally, set the configuration using whichever URL was chosen
+app.config['SQLALCHEMY_DATABASE_URI'] = database_url
 
 db.init_app(app)
 CORS(app)
