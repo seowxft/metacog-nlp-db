@@ -17,6 +17,7 @@ class PerTutorialData(BaseObject, Model):
     section         = Column(Text(length=10000))
     sectionTime         = Column(Text(length=10000))
     tutorialTry = Column(Text(length=10000))
+    blockCond = Column(Text(length=10000))
     trialNum      = Column(Text(length=10000))
     trialTime            = Column(Text(length=10000))
     fixTime            = Column(Text(length=10000))
@@ -79,6 +80,9 @@ class PerTutorialData(BaseObject, Model):
 
     def get_sectionTime(self):
         return str(self.sectionTime)
+
+    def get_blockCond(self):
+        return str(self.blockCond)
 
     def get_tutorialTry(self):
         return str(self.tutorialTry)

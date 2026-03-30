@@ -17,6 +17,7 @@ class MemTutorialData(BaseObject, Model):
     section         = Column(Text(length=10000))
     sectionTime         = Column(Text(length=10000))
     trialNum      = Column(Text(length=10000))
+    blockCond  = Column(Text(length=10000))
     tutorialTry  = Column(Text(length=10000))
     choicePos         = Column(Text(length=10000))
     choiceCor         = Column(Text(length=10000))
@@ -85,6 +86,9 @@ class MemTutorialData(BaseObject, Model):
 
     def get_sectionTime(self):
         return str(self.sectionTime)
+
+    def get_blockCond(self):
+        return str(self.blockCond)
 
     def get_trialNum(self):
         return str(self.trialNum)

@@ -15,6 +15,7 @@ def create_per_tutorial_data(user_id):
     per_tut.section    = str(content['section'])
     per_tut.sectionTime    = str(content['sectionTime'])
     per_tut.tutorialTry    = str(content['tutorialTry'])
+    per_tut.blockCond    = str(content['blockCond'])
     per_tut.trialNum = str(content['trialNum'])
     per_tut.trialTime  = str(content['trialTime'])
     per_tut.fixTime   = str(content['fixTime'])

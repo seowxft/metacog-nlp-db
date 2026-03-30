@@ -16,6 +16,7 @@ def create_mem_tutorial_data(user_id):
     mem_tut.sectionTime    = str(content['sectionTime'])
     mem_tut.trialNum = str(content['trialNum'])
     mem_tut.tutorialTry = str(content['tutorialTry'])
+    mem_tut.blockCond    = str(content['blockCond'])
     mem_tut.choicePos    = str(content['choicePos'])
     mem_tut.choiceCor    = str(content['choiceCor'])
     
