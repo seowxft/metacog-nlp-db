@@ -16,8 +16,6 @@ class PerQuizTest(BaseObject, Model):
     startTime           = Column(Text(length=10000))
     section          = Column(Text(length=10000))
     sectionTime          = Column(Text(length=10000))
-    taskSession         = Column(Text(length=10000))
-    taskSessionTry      = Column(Text(length=10000))
     quizTry        =  Column(Text(length=10000))
     quizNumTotal         = Column(Text(length=10000))
     quizNum          = Column(Text(length=10000))
