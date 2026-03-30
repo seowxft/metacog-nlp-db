@@ -40,6 +40,18 @@ class MemTutorialData(BaseObject, Model):
     reversals     = Column(Text(length=10000))
     stairDir     = Column(Text(length=10000))
 
+    stimNumEasy = Column(Text(length=10000))
+    correctMatEasy     = Column(Text(length=10000))
+    correctPerEasy    = Column(Text(length=10000))
+    responseMatrixEasy  = Column(Text(length=10000))
+    stairDirEasy     = Column(Text(length=10000))
+
+    stimNumHard = Column(Text(length=10000))
+    correctMatHard =Column(Text(length=10000))
+    correctPerHard  = Column(Text(length=10000))
+    responseMatrixHard    = Column(Text(length=10000))
+    stairDirHard = Column(Text(length=10000))
+
     stimPick        = Column(Text(length=10000))
     stimWordPick       = Column(Text(length=10000))
     stimShown        = Column(Text(length=10000))
@@ -136,7 +148,36 @@ class MemTutorialData(BaseObject, Model):
 
     def get_stairDir(self):
         return str(self.stairDir)
+    
+    def get_correctMatEasy(self):
+        return str(self.correctMatEasy)
 
+    def get_correctPerEasy(self):
+        return str(self.correctPerEasy)
+
+    def get_responseMatrixEasy(self):
+        return str(self.responseMatrixEasy)
+
+    def get_stairDirEasy(self):
+        return str(self.stairDirEasy)
+
+    def get_stimNumEasy(self):
+        return str(self.stimNumEasy)
+
+    def get_correctMatHard(self):
+        return str(self.correctMatHard)
+
+    def get_correctPerHard(self):
+        return str(self.correctPerHard)
+
+    def get_responseMatrixHard(self):
+        return str(self.responseMatrixHard)
+
+    def get_stairDirHard(self):
+        return str(self.stairDirHard)
+
+    def get_stimNumHard(self):
+        return str(self.stimNumHard)
 
     def get_stimPick(self):
         return str(self.stimPick)

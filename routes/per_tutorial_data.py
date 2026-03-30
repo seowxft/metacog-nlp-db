@@ -38,6 +38,19 @@ def create_per_tutorial_data(user_id):
     per_tut.reversals = str(content['reversals'])
     per_tut.stairDir     = str(content['stairDir'])
     per_tut.dotStair    = str(content['dotStair'])
+
+    per_tut.correctMatEasy = str(content['correctMatEasy'])
+    per_tut.correctPerEasy  = str(content['correctPerEasy'])
+    per_tut.responseMatrixEasy    = str(content['responseMatrixEasy'])
+    per_tut.stairDirEasy = str(content['stairDirEasy'])
+    per_tut.dotStairEasy = str(content['dotStairEasy'])
+
+    per_tut.correctMatHard = str(content['correctMatHard'])
+    per_tut.correctPerHard  = str(content['correctPerHard'])
+    per_tut.responseMatrixHard = str(content['responseMatrixHard'])
+    per_tut.stairDirHard     = str(content['stairDirHard'])
+    per_tut.dotStairHard     = str(content['dotStairHard'])
+
     per_tut.dotStairLeft     = str(content['dotStairLeft'])
     per_tut.dotStairRight  = str(content['dotStairRight'])
 

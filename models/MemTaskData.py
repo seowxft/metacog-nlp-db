@@ -17,9 +17,13 @@ class MemTaskData(BaseObject, Model):
     section         = Column(Text(length=10000))
     sectionTime    = Column(Text(length=10000))
     trialNum = Column(Text(length=10000))
+    blockNum                = Column(Text(length=10000))
+    blockCond           = Column(Text(length=10000))
+    condEasyTrialNum         = Column(Text(length=10000))
+    condHardTrialNum    = Column(Text(length=10000))
+    trialNumInBlock = Column(Text(length=10000))
     choicePos =Column(Text(length=10000))
     choiceCor =Column(Text(length=10000))
-
     trialTime  = Column(Text(length=10000))
     fixTime   = Column(Text(length=10000))
     stimTime    = Column(Text(length=10000))
@@ -40,6 +44,18 @@ class MemTaskData(BaseObject, Model):
     responseMatrix  = Column(Text(length=10000))
     reversals = Column(Text(length=10000))
     stairDir     = Column(Text(length=10000))
+
+    stimNumEasy = Column(Text(length=10000))
+    correctMatEasy     = Column(Text(length=10000))
+    correctPerEasy    = Column(Text(length=10000))
+    responseMatrixEasy  = Column(Text(length=10000))
+    stairDirEasy     = Column(Text(length=10000))
+
+    stimNumHard = Column(Text(length=10000))
+    correctMatHard =Column(Text(length=10000))
+    correctPerHard  = Column(Text(length=10000))
+    responseMatrixHard    = Column(Text(length=10000))
+    stairDirHard = Column(Text(length=10000))
 
     stimPick= Column(Text(length=10000))
     stimWordPick= Column(Text(length=10000))
@@ -77,6 +93,18 @@ class MemTaskData(BaseObject, Model):
 
     def get_trialNum(self):
         return str(self.trialNum)
+
+    def get_blockNum(self):
+        return str(self.blockNum)
+
+    def get_blockCond(self):
+        return str(self.blockCond)
+
+    def get_condEasyTrialNum(self):
+        return str(self.condEasyTrialNum)
+
+    def get_condHardTrialNum(self):
+        return str(self.condHardTrialNum)
 
     def get_choicePos(self):
         return str(self.choicePos)
@@ -137,6 +165,36 @@ class MemTaskData(BaseObject, Model):
 
     def get_stairDir(self):
         return str(self.stairDir)
+    
+    def get_correctMatEasy(self):
+        return str(self.correctMatEasy)
+
+    def get_correctPerEasy(self):
+        return str(self.correctPerEasy)
+
+    def get_responseMatrixEasy(self):
+        return str(self.responseMatrixEasy)
+
+    def get_stairDirEasy(self):
+        return str(self.stairDirEasy)
+
+    def get_stimNumEasy(self):
+        return str(self.stimNumEasy)
+
+    def get_correctMatHard(self):
+        return str(self.correctMatHard)
+
+    def get_correctPerHard(self):
+        return str(self.correctPerHard)
+
+    def get_responseMatrixHard(self):
+        return str(self.responseMatrixHard)
+
+    def get_stairDirHard(self):
+        return str(self.stairDirHard)
+
+    def get_stimNumHard(self):
+        return str(self.stimNumHard)
 
     def get_stimPick(self):
         return str(self.stimPick)

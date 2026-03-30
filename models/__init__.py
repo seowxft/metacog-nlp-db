@@ -27,4 +27,5 @@ __all__ = (
     'PerTaskData',
     'QuizTest',
     'PsychQuiz',
+    'Feedback'
 )

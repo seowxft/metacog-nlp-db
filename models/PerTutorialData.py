@@ -40,10 +40,21 @@ class PerTutorialData(BaseObject, Model):
     reversals     = Column(Text(length=10000))
     stairDir     = Column(Text(length=10000))
     dotStair   = Column(Text(length=10000))
+
+    correctMatEasy        = Column(Text(length=10000))
+    correctPerEasy     = Column(Text(length=10000))
+    responseMatrixEasy     = Column(Text(length=10000))
+    stairDirEasy   = Column(Text(length=10000))
+    dotStairEasy      = Column(Text(length=10000))
+
+    correctMatHard      = Column(Text(length=10000))
+    correctPerHard       = Column(Text(length=10000))
+    responseMatrixHard     = Column(Text(length=10000))
+    stairDirHard     = Column(Text(length=10000))
+    dotStairHard         = Column(Text(length=10000))
+
     dotStairLeft      = Column(Text(length=10000))
     dotStairRight       = Column(Text(length=10000))
-
-
 
     def get_id(self):
         return str(self.id)
@@ -140,6 +151,36 @@ class PerTutorialData(BaseObject, Model):
 
     def get_dotStair(self):
         return str(self.dotStair)
+    
+    def get_correctMatEasy(self):
+        return str(self.correctMatEasy)
+
+    def get_correctPerEasy(self):
+        return str(self.correctPerEasy)
+
+    def get_responseMatrixEasy(self):
+        return str(self.responseMatrixEasy)
+
+    def get_stairDirEasy(self):
+        return str(self.stairDirEasy)
+
+    def get_dotStairEasy(self):
+        return str(self.dotStairEasy)
+
+    def get_correctMatHard(self):
+        return str(self.correctMatHard)
+
+    def get_correctPerHard(self):
+        return str(self.correctPerHard)
+
+    def get_responseMatrixHard(self):
+        return str(self.responseMatrixHard)
+
+    def get_stairDirHard(self):
+        return str(self.stairDirHard)
+
+    def get_dotStairHard(self):
+        return str(self.dotStairHard)
 
     def get_dotStairLeft(self):
         return str(self.dotStairLeft)

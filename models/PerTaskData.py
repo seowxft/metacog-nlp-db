@@ -17,6 +17,11 @@ class PerTaskData(BaseObject, Model):
     section         = Column(Text(length=10000))
     sectionTime    = Column(Text(length=10000))
     trialNum = Column(Text(length=10000))
+    blockNum                = Column(Text(length=10000))
+    blockCond           = Column(Text(length=10000))
+    condEasyTrialNum         = Column(Text(length=10000))
+    condHardTrialNum    = Column(Text(length=10000))
+    trialNumInBlock = Column(Text(length=10000))
     trialTime  = Column(Text(length=10000))
     fixTime   = Column(Text(length=10000))
     stimTime    = Column(Text(length=10000))
@@ -39,12 +44,24 @@ class PerTaskData(BaseObject, Model):
     reversals = Column(Text(length=10000))
     stairDir     = Column(Text(length=10000))
     dotStair    = Column(Text(length=10000))
+
+    dotStairEasy = Column(Text(length=10000))
+    correctMatEasy     = Column(Text(length=10000))
+    correctPerEasy    = Column(Text(length=10000))
+    responseMatrixEasy  = Column(Text(length=10000))
+    stairDirEasy     = Column(Text(length=10000))
+
+    dotStairHard = Column(Text(length=10000))
+    correctMatHard =Column(Text(length=10000))
+    correctPerHard  = Column(Text(length=10000))
+    responseMatrixHard    = Column(Text(length=10000))
+    stairDirHard = Column(Text(length=10000))
+
     dotStairLeft     = Column(Text(length=10000))
     dotStairRight  = Column(Text(length=10000))
 
     def get_id(self):
         return str(self.id)
-
     def get_prolific_id(self):
         return str(self.prolificID)
 
@@ -68,39 +85,120 @@ class PerTaskData(BaseObject, Model):
 
     def get_trialNum(self):
         return str(self.trialNum)
+    
+    def get_blockNum(self):
+        return str(self.blockNum)
 
-    def get_trialPic(self):
-        return str(self.trialPic)
+    def get_blockCond(self):
+        return str(self.blockCond)
 
-    def get_trialWord(self):
-        return str(self.trialWord)
+    def get_condEasyTrialNum(self):
+        return str(self.condEasyTrialNum)
 
-    def get_trialCat(self):
-        return str(self.trialCat)
+    def get_condHardTrialNum(self):
+        return str(self.condHardTrialNum)
 
-    def get_ratingTime(self):
-        return str(self.ratingTime)
+    def get_trialTime(self):
+        return str(self.trialTime)
 
-    def get_ratingRT(self):
-        return str(self.ratingRT)
+    def get_fixTime(self):
+        return str(self.fixTime)
 
-    def get_ratingRT(self):
-        return str(self.ratingRT)
+    def get_stimTime(self):
+        return str(self.stimTime)
 
-    def get_itemText(self):
-        return str(self.itemText)
+    def get_stimPos(self):
+        return str(self.stimPos)
 
-    def get_harmIni(self):
-        return str(self.harmIni)
+    def get_dotDiffLeft(self):
+        return str(self.dotDiffLeft)
 
-    def get_harmLevel(self):
-        return str(self.harmLevel)
+    def get_dotDiffRight(self):
+        return str(self.dotDiffRight)
 
-    def get_anxIni(self):
-        return str(self.anxIni)
+    def get_dotDiffStim1(self):
+        return str(self.dotDiffStim1)
 
-    def get_anxLevel(self):
-        return str(self.anxLevel)
+    def get_dotDiffStim2(self):
+        return str(self.dotDiffStim2)
+
+    def get_responseKey(self):
+        return str(self.responseKey)
+
+    def get_respTime(self):
+        return str(self.respTime)
+
+    def get_respFbTime(self):
+        return str(self.respFbTime)
+
+    def get_rewFbTime(self):
+        return str(self.rewFbTime)
+
+    def get_choice(self):
+        return str(self.choice)
+
+    def get_confLevel(self):
+        return str(self.confLevel)
+
+    def get_confTime(self):
+        return str(self.confTime)
+
+    def get_correct(self):
+        return str(self.correct)
+
+    def get_correctMat(self):
+        return str(self.correctMat)
+
+    def get_correctPer(self):
+        return str(self.correctPer)
+
+    def get_responseMatrix(self):
+        return str(self.responseMatrix)
+
+    def get_reversals(self):
+        return str(self.reversals)
+
+    def get_stairDir(self):
+        return str(self.stairDir)
+
+    def get_dotStair(self):
+        return str(self.dotStair)
+    
+    def get_correctMatEasy(self):
+        return str(self.correctMatEasy)
+
+    def get_correctPerEasy(self):
+        return str(self.correctPerEasy)
+
+    def get_responseMatrixEasy(self):
+        return str(self.responseMatrixEasy)
+
+    def get_stairDirEasy(self):
+        return str(self.stairDirEasy)
+
+    def get_dotStairEasy(self):
+        return str(self.dotStairEasy)
+
+    def get_correctMatHard(self):
+        return str(self.correctMatHard)
+
+    def get_correctPerHard(self):
+        return str(self.correctPerHard)
+
+    def get_responseMatrixHard(self):
+        return str(self.responseMatrixHard)
+
+    def get_stairDirHard(self):
+        return str(self.stairDirHard)
+
+    def get_dotStairHard(self):
+        return str(self.dotStairHard)
+
+    def get_dotStairLeft(self):
+        return str(self.dotStairLeft)
+
+    def get_dotStairRight(self):
+        return str(self.dotStairRight)
 
 
     def errors(self):

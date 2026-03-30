@@ -18,6 +18,7 @@ def create_mem_tutorial_data(user_id):
     mem_tut.tutorialTry = str(content['tutorialTry'])
     mem_tut.choicePos    = str(content['choicePos'])
     mem_tut.choiceCor    = str(content['choiceCor'])
+    
     mem_tut.trialTime  = str(content['trialTime'])
     mem_tut.fixTime   = str(content['fixTime'])
     mem_tut.stimTime    = str(content['stimTime'])
@@ -37,6 +38,18 @@ def create_mem_tutorial_data(user_id):
     mem_tut.responseMatrix  = str(content['responseMatrix'])
     mem_tut.reversals = str(content['reversals'])
     mem_tut.stairDir     = str(content['stairDir'])
+
+    mem_tut.stimNumEasy = str(content['stimNumEasy'])
+    mem_tut.correctMatEasy = str(content['correctMatEasy'])
+    mem_tut.correctPerEasy = str(content['correctPerEasy'])
+    mem_tut.responseMatrixEasy  = str(content['responseMatrixEasy'])
+    mem_tut.stairDirEasy  = str(content['stairDirEasy'])
+
+    mem_tut.stimNumHard  = str(content['stimNumHard'])
+    mem_tut.correctMatHard  = str(content['correctMatHard'])
+    mem_tut.correctPerHard = str(content['correctPerHard'])
+    mem_tut.responseMatrixHard     = str(content['responseMatrixHard'])
+    mem_tut.stairDirHard     = str(content['stairDirHard'])
 
     mem_tut.stimPick  = str(content['stimPick'])
     mem_tut.stimWordPick  = str(content['stimWordPick'])

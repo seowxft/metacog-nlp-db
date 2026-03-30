@@ -20,6 +20,8 @@ class PrePostConf(BaseObject, Model):
     quizState       = Column(Text(length=10000))
     confInitial            = Column(Text(length=10000))
     confLevel             = Column(Text(length=10000))
+    textTime            = Column(Text(length=10000))
+    selfKnowledge             = Column(Text(length=10000))
 
     def get_id(self):
         return str(self.id)
@@ -57,7 +59,12 @@ class PrePostConf(BaseObject, Model):
     def get_confLevel(self):
         return str(self.confLevel)
 
+    def get_textTime(self):
+        return str(self.textTime)
 
+    def get_selfKnowledge(self):
+        return str(self.selfKnowledge)
+    
     def errors(self):
         errors = super(PrePostConf, self).errors()
         return errors
