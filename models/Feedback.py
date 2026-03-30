@@ -15,12 +15,12 @@ class Feedback(BaseObject, Model):
     startTime            = Column(Text(length=10000))
     section               = Column(Text(length=10000))
     sectionTime           = Column(Text(length=10000))
-    ratingValue           = Column(Text(length=10000))
     perBonus = Column(Text(length=10000))
     memBonus = Column(Text(length=10000))
     totalBonus            = Column(Text(length=10000))
     feedback             = Column(Text(length=10000))
-
+    textTime            = Column(Text(length=10000))
+    selfKnowledge             = Column(Text(length=10000))
 
     def get_id(self):
         return str(self.id)
@@ -46,9 +46,6 @@ class Feedback(BaseObject, Model):
     def get_sectionTime(self):
         return str(self.sectionTime)
 
-    def get_ratingValue(self):
-        return str(self.ratingValue)
-
     def get_perBonus(self):
         return str(self.perBonus)
 
@@ -61,6 +58,11 @@ class Feedback(BaseObject, Model):
     def get_feedback(self):
         return str(self.feedback)
 
+    def get_textTime(self):
+        return str(self.textTime)
+
+    def get_selfKnowledge(self):
+        return str(self.selfKnowledge)
 
     def errors(self):
         errors = super(Feedback, self).errors()
