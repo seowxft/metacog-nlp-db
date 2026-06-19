@@ -15,6 +15,7 @@ def create_pre_post_conf(user_id):
     prepost_conf.startTime   = str(content['startTime'])
     prepost_conf.section   = str(content['section'])
     prepost_conf.sectionTime = str(content['sectionTime'])
+    prepost_conf.blockNum = str(content['blockNum'])
     prepost_conf.quizState = str(content['quizState'])
     prepost_conf.confInitial = str(content['confInitial'])
     prepost_conf.confLevel = str(content['confLevel'])

@@ -17,6 +17,7 @@ class PrePostConf(BaseObject, Model):
     startTime            = Column(Text(length=10000))
     section          = Column(Text(length=10000))
     sectionTime          = Column(Text(length=10000))
+    blockNum   = Column(Text(length=10000))
     quizState       = Column(Text(length=10000))
     confInitial            = Column(Text(length=10000))
     confLevel             = Column(Text(length=10000))
@@ -50,6 +51,9 @@ class PrePostConf(BaseObject, Model):
 
     def get_sectionTime(self):
         return str(self.sectionTime)
+
+    def get_blockNum(self):
+        return str(self.blockNum)
 
     def get_quizState(self):
         return str(self.quizState)
