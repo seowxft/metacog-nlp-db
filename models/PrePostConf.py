@@ -23,6 +23,7 @@ class PrePostConf(BaseObject, Model):
     confLevel             = Column(Text(length=10000))
     textTime            = Column(Text(length=10000))
     selfKnowledge             = Column(Text(length=10000))
+    mouseMovements =   Column(Text(length=10000))
 
     def get_id(self):
         return str(self.id)
@@ -68,6 +69,9 @@ class PrePostConf(BaseObject, Model):
 
     def get_selfKnowledge(self):
         return str(self.selfKnowledge)
+    
+    def get_mouseMovements(self):
+        return str(self.mouseMovements)
     
     def errors(self):
         errors = super(PrePostConf, self).errors()
