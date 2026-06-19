@@ -59,6 +59,7 @@ class PerTaskData(BaseObject, Model):
 
     dotStairLeft     = Column(Text(length=10000))
     dotStairRight  = Column(Text(length=10000))
+    mouseMovements =  Column(Text(length=10000))
 
     def get_id(self):
         return str(self.id)
@@ -200,7 +201,9 @@ class PerTaskData(BaseObject, Model):
     def get_dotStairRight(self):
         return str(self.dotStairRight)
 
-
+    def get_mouseMovements(self):
+        return str(self.mouseMovements)
+    
     def errors(self):
         errors = super(PerTaskData, self).errors()
         return errors

@@ -61,6 +61,7 @@ def create_per_task_data(user_id):
     per_task.dotStairLeft     = str(content['dotStairLeft'])
     per_task.dotStairRight  = str(content['dotStairRight'])
 
+    per_task.mouseMovements  = str(content['mouseMovements'])
 
     BaseObject.check_and_save(per_task)
     result = dict({"success": "yes"})
