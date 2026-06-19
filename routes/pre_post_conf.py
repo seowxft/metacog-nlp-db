@@ -21,6 +21,7 @@ def create_pre_post_conf(user_id):
     prepost_conf.confLevel = str(content['confLevel'])
     prepost_conf.textTime = str(content['textTime'])
     prepost_conf.selfKnowledge = str(content['selfKnowledge'])
+    prepost_conf.mouseMovements = str(content['mouseMovements'])
 
     BaseObject.check_and_save(prepost_conf)
     result = dict({"success": "yes"})
