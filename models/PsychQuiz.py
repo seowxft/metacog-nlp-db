@@ -35,6 +35,7 @@ class PsychQuiz(BaseObject, Model):
     RSE    = Column(Text(length=10000))
     STAIY2  = Column(Text(length=10000))
     SDS      = Column(Text(length=10000))
+    mouseMovements= Column(Text(length=10000)) 
 
     def get_id(self):
         return str(self.id)
@@ -123,6 +124,8 @@ class PsychQuiz(BaseObject, Model):
     def get_sds(self):
         return str(self.SDS)
 
+    def get_mouseMovements(self):
+        return str(self.mouseMovements)
 
     def errors(self):
         errors = super(PsychQuiz, self).errors()

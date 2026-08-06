@@ -36,6 +36,7 @@ def create_psych_data(user_id):
     psych_quiz.RSE = str(content['RSE'])
     psych_quiz.STAIY2 = str(content['STAIY2'])
     psych_quiz.SDS = str(content['SDS'])
+    psych_quiz.mouseMovements = str(content['mouseMovements'])
 
     BaseObject.check_and_save(psych_quiz)
     result = dict({"success": "yes"})
