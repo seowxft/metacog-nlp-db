@@ -28,7 +28,6 @@ def create_psych_data(user_id):
     psych_quiz.PgRT_RSE = str(content['PgRT_RSE'])
     psych_quiz.PgRT_STAIY2 = str(content['PgRT_STAIY2'])
     psych_quiz.PgRT_SDS = str(content['PgRT_SDS'])
-    psych_quiz.PgRT_SSMS = str(content['PgRT_SSMS'])
     psych_quiz.age = str(content['age'])
     psych_quiz.gender = str(content['gender'])
     psych_quiz.AES = str(content['AES'])
