@@ -140,14 +140,16 @@ def test_text_value_longer_than_the_declared_length_is_stored_intact(client):
     assert stored[0]["mouseMovements"] == body["mouseMovements"]
 
 
-def test_empty_object_body_inserts_an_all_null_row(client):
-    # An empty JSON object is still a JSON object, so json_body() accepts it and
-    # field() turns every absent key into NULL (spec items 9 and 10).
+def test_empty_object_body_returns_a_json_400(client):
+    # An empty object carries no trial data: json_body() rejects it rather than
+    # inserting a row of NULLs.  A body missing ONE key is still accepted.
     user_id = "empty-body"
 
     response = post(client, "pre_post_conf", user_id, json={})
 
-    assert response.status_code == 200
+    assert response.status_code == 400
+    assert response.is_json
+    assert response.get_json() == {"body": ["expected a non-empty JSON object"]}
     connection = sqlite3.connect(DB_PATH)
     try:
         stored = connection.execute(
@@ -155,7 +157,7 @@ def test_empty_object_body_inserts_an_all_null_row(client):
         ).fetchall()
     finally:
         connection.close()
-    assert len(stored) >= 1
+    assert stored == []
 
 
 def test_list_body_returns_a_json_400(client):
@@ -163,7 +165,7 @@ def test_list_body_returns_a_json_400(client):
 
     assert response.status_code == 400
     assert response.is_json
-    assert response.get_json() == {"body": ["expected a JSON object"]}
+    assert response.get_json() == {"body": ["expected a non-empty JSON object"]}
 
 
 def test_text_plain_json_body_is_accepted(client):

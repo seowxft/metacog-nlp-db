@@ -13,12 +13,13 @@ def json_body():
 
     Uses force=True so a body sent as text/plain (navigator.sendBeacon) is
     still parsed, and silent=True so malformed JSON does not raise a 400 HTML
-    page before the handler runs.
+    page before the handler runs.  An empty object carries no trial data, so it
+    is rejected like any other unusable body.
     """
     content = request.get_json(force=True, silent=True)
-    if not isinstance(content, dict):
+    if not isinstance(content, dict) or not content:
         api_errors = ApiErrors()
-        api_errors.addError('body', 'expected a JSON object')
+        api_errors.addError('body', 'expected a non-empty JSON object')
         raise api_errors
     return content
 
