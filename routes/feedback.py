@@ -18,8 +18,6 @@ def create_feedback(user_id):
     feedback.memBonus    = str(content['memBonus'])
     feedback.totalBonus    = str(content['totalBonus'])
     feedback.feedback    = str(content['feedback'])
-    feedback.textTime    = str(content['textTime'])
-    feedback.selfKnowledge    = str(content['selfKnowledge'])
 
     BaseObject.check_and_save(feedback)
     result = dict({"success": "yes"})
