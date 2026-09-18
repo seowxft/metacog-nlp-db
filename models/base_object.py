@@ -3,7 +3,9 @@ from collections import OrderedDict
 from datetime import datetime
 from decimal import Decimal, InvalidOperation
 from pprint import pprint
+import logging
 import re
+import traceback
 #from psycopg2.extras import DateTimeRange
 from sqlalchemy import CHAR,\
                        BigInteger,\
@@ -22,6 +24,8 @@ from models.db import db
 DUPLICATE_KEY_ERROR_CODE = '23505'
 NOT_FOUND_KEY_ERROR_CODE = '23503'
 OBLIGATORY_FIELD_ERROR_CODE = '23502'
+
+logger = logging.getLogger(__name__)
 
 
 def serialize(value, **options):
