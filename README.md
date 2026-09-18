@@ -3,6 +3,7 @@
 Only if executing local copy
 -use python v3.14
 -use virtual environment, activate venv -`pip install -r requirements.txt` to install all dependencies
+-copy `config.txt.example` to `config.txt` and set `database_url` for your local database
 -run `python app.py`
 
 Extract data
