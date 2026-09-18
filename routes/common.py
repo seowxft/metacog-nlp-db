@@ -1,7 +1,11 @@
 """shared request helpers for the routes"""
-from flask import request
+import logging
+
+from flask import current_app as app, g, has_request_context, request
 
 from models import ApiErrors
+
+logger = logging.getLogger(__name__)
 
 
 def json_body():
@@ -17,3 +21,27 @@ def json_body():
         api_errors.addError('body', 'expected a JSON object')
         raise api_errors
     return content
+
+
+def field(content, key):
+    """Return str(content[key]), or None when the key is absent or JSON null.
+
+    Missing keys are collected and reported once per request by
+    log_missing_fields below, so a client that stops sending one field yields
+    SQL NULL for it instead of losing the whole row to a KeyError.
+    """
+    if key not in content:
+        if has_request_context():
+            g.setdefault('missing_fields', []).append(key)
+        return None
+    value = content[key]
+    return None if value is None else str(value)
+
+
+@app.after_request
+def log_missing_fields(response):
+    missing = g.pop('missing_fields', None)
+    if missing:
+        logger.warning('%s %s: %s key(s) missing from the body, stored as NULL: %s',
+                       request.method, request.path, len(missing), ', '.join(missing))
+    return response
