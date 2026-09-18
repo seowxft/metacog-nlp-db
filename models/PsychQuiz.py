@@ -17,24 +17,15 @@ class PsychQuiz(BaseObject, Model):
     qnTimeStart      = Column(Text(length=10000))
     qnTimeEnd        = Column(Text(length=10000))
     PgFinish_demo    = Column(Text(length=10000))
-    PgFinish_AES    = Column(Text(length=10000))
-    PgFinish_GSE    = Column(Text(length=10000))
-    PgFinish_RSE    = Column(Text(length=10000))
-    PgFinish_STAIY2  = Column(Text(length=10000))
-    PgFinish_SDS      = Column(Text(length=10000))
+    PgFinish_PHQ    = Column(Text(length=10000))
+    PgFinish_GAD   = Column(Text(length=10000))
     PgRT_demo    = Column(Text(length=10000))
-    PgRT_AES    = Column(Text(length=10000))
-    PgRT_GSE    = Column(Text(length=10000))
-    PgRT_RSE    = Column(Text(length=10000))
-    PgRT_STAIY2  = Column(Text(length=10000))
-    PgRT_SDS      = Column(Text(length=10000))
+    PgRT_PHQ    = Column(Text(length=10000))
+    PgRT_GAD    = Column(Text(length=10000))
     age              = Column(Text(length=10000))
     gender           = Column(Text(length=10000))
-    AES    = Column(Text(length=10000))
-    GSE    = Column(Text(length=10000))
-    RSE    = Column(Text(length=10000))
-    STAIY2  = Column(Text(length=10000))
-    SDS      = Column(Text(length=10000))
+    PHQ    = Column(Text(length=10000))
+    GAD    = Column(Text(length=10000))
     mouseMovements= Column(Text(length=10000)) 
 
     def get_id(self):
@@ -71,37 +62,19 @@ class PsychQuiz(BaseObject, Model):
         return str(self.PgFinish_demo)
 
     def get_pg1_finish(self):
-        return str(self.PgFinish_AES)
+        return str(self.PgFinish_PHQ)
 
-    def get_pg7_finish(self):
-        return str(self.PgFinish_SDS)
-
-    def get_pg9_finish(self):
-        return str(self.PgFinish_STAIY2)
-
-    def get_pg10_finish(self):
-        return str(self.PgFinish_RSE)
-
-    def get_pg11_finish(self):
-        return str(self.PgFinish_GSE)
+    def get_pg2_finish(self):
+        return str(self.PgFinish_GAD)
 
     def get_pg0_rt(self):
         return str(self.PgRT_demo)
 
     def get_pg1_rt(self):
-        return str(self.PgRT_AES)
+        return str(self.PgRT_PHQ)
 
-    def get_pg7_rt(self):
-        return str(self.PgRT_SDS)
-
-    def get_pg9_rt(self):
-        return str(self.PgRT_STAIY2)
-
-    def get_pg10_rt(self):
-        return str(self.PgRT_RSE)
-
-    def get_pg11_rt(self):
-        return str(self.PgRT_GSE)
+    def get_pg2_rt(self):
+        return str(self.PgRT_GAD)
 
     def get_age(self):
         return str(self.age)
@@ -109,20 +82,11 @@ class PsychQuiz(BaseObject, Model):
     def get_gender(self):
         return str(self.gender)
 
-    def get_aes(self):
-        return str(self.AES)
+    def get_phq(self):
+        return str(self.PHQ)
 
-    def get_gse(self):
-        return str(self.GSE)
-
-    def get_rse(self):
-        return str(self.RSE)
-
-    def get_staiTwo(self):
-        return str(self.STAIY2)
-
-    def get_sds(self):
-        return str(self.SDS)
+    def get_gad(self):
+        return str(self.GAD)
 
     def get_mouseMovements(self):
         return str(self.mouseMovements)
