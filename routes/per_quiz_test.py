@@ -2,27 +2,28 @@
 from flask import current_app as app, jsonify, request
 from models import PerQuizTest, BaseObject, db
 from sqlalchemy.sql.expression import func
+from routes.common import field, json_body
 
-@app.route('/per_quiz_test/<user_id>', methods=['POST', 'GET'])
+@app.route('/per_quiz_test/<user_id>', methods=['POST'])
 def create_per_quiz_test(user_id):
-    content = request.json
+    content = json_body()
     per_quiz = PerQuizTest()
-    per_quiz.prolificID      = str(content['prolificID'])
-    per_quiz.userID      = str(content['userID'])
-    per_quiz.condition      = str(content['condition'])
-    per_quiz.date        = str(content['date'])
-    per_quiz.startTime   = str(content['startTime'])
-    per_quiz.section   = str(content['section'])
-    per_quiz.sectionTime   = str(content['sectionTime'])
-    per_quiz.quizTry   = str(content['quizTry'])
-    per_quiz.quizNumTotal = str(content['quizNumTotal'])
-    per_quiz.quizNum = str(content['quizNum'])
-    per_quiz.quizTime = str(content['quizTime'])
-    per_quiz.quizResp = str(content['quizResp'])
-    per_quiz.quizRT = str(content['quizRT'])
-    per_quiz.quizAns = str(content['quizAns'])
-    per_quiz.quizCor = str(content['quizCor'])
-    per_quiz.quizCorTotal = str(content['quizCorTotal'])
+    per_quiz.prolificID      = field(content, 'prolificID')
+    per_quiz.userID      = field(content, 'userID')
+    per_quiz.condition      = field(content, 'condition')
+    per_quiz.date        = field(content, 'date')
+    per_quiz.startTime   = field(content, 'startTime')
+    per_quiz.section   = field(content, 'section')
+    per_quiz.sectionTime   = field(content, 'sectionTime')
+    per_quiz.quizTry   = field(content, 'quizTry')
+    per_quiz.quizNumTotal = field(content, 'quizNumTotal')
+    per_quiz.quizNum = field(content, 'quizNum')
+    per_quiz.quizTime = field(content, 'quizTime')
+    per_quiz.quizResp = field(content, 'quizResp')
+    per_quiz.quizRT = field(content, 'quizRT')
+    per_quiz.quizAns = field(content, 'quizAns')
+    per_quiz.quizCor = field(content, 'quizCor')
+    per_quiz.quizCorTotal = field(content, 'quizCorTotal')
 
 
     BaseObject.check_and_save(per_quiz)
