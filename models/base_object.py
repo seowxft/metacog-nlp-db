@@ -279,15 +279,19 @@ class BaseObject():
         try:
             db.session.commit()
         except DataError as de:
+            db.session.rollback()
             api_errors.addError(*BaseObject.restize_data_error(de))
             raise api_errors
         except IntegrityError as ie:
+            db.session.rollback()
             api_errors.addError(*BaseObject.restize_integrity_error(ie))
             raise api_errors
         except TypeError as te:
+            db.session.rollback()
             api_errors.addError(*BaseObject.restize_type_error(te))
             raise api_errors
         except ValueError as ve:
+            db.session.rollback()
             api_errors.addError(*BaseObject.restize_value_error(ve))
             raise api_errors
 
