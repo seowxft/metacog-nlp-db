@@ -8,9 +8,7 @@ class ApiErrors(Exception):
         self.errors = {}
 
     def addError(self, field, error):
-        self.errors[field] = self.errors[field].append(error)\
-                                if field in self.errors\
-                                else [error]
+        self.errors.setdefault(field, []).append(error)
 
     def checkDate(self, field, value):
         if (isinstance(value, str) ) and re.search(r'^\d{4}-\d{2}-\d{2}( \d{2}:\d{2}(:\d{2})?)?$', value):
@@ -54,7 +52,6 @@ class ApiErrors(Exception):
             raise self
 
     def __str__(self):
-        if self.errors:
-            return json.dumps(self.errors, indent=2)
+        return json.dumps(self.errors, indent=2)
 
     status_code = None
