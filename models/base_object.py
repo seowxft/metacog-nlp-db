@@ -14,7 +14,8 @@ from sqlalchemy import CHAR,\
                        Float,\
                        Integer,\
                        Numeric,\
-                       String
+                       String,\
+                       Text
 from sqlalchemy.orm.collections import InstrumentedList
 from sqlalchemy.exc import DataError, IntegrityError
 
@@ -158,6 +159,7 @@ class BaseObject():
                and not isinstance(val, str):
                 errors.addError(key, 'doit etre une chaine de caracteres')
             if (isinstance(col.type, String) or isinstance(col.type, CHAR))\
+               and not isinstance(col.type, Text)\
                and isinstance(val, str)\
                and col.type.length\
                and len(val)>col.type.length:
