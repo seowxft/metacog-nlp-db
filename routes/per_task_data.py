@@ -2,10 +2,11 @@
 from flask import current_app as app, jsonify, request
 from models import PerTaskData, BaseObject, db
 from sqlalchemy.sql.expression import func
+from routes.common import json_body
 
-@app.route('/per_task_data/<user_id>', methods=['POST', 'GET'])
+@app.route('/per_task_data/<user_id>', methods=['POST'])
 def create_per_task_data(user_id):
-    content = request.json
+    content = json_body()
     per_task = PerTaskData()
     per_task.prolificID      = str(content['prolificID'])
     per_task.userID      = str(content['userID'])

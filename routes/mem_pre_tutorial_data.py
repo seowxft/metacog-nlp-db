@@ -2,10 +2,11 @@
 from flask import current_app as app, jsonify, request
 from models import MemPreTutorialData, BaseObject, db
 from sqlalchemy.sql.expression import func
+from routes.common import json_body
 
-@app.route('/mem_pre_tutorial_data/<user_id>', methods=['POST', 'GET'])
+@app.route('/mem_pre_tutorial_data/<user_id>', methods=['POST'])
 def create_mem_pre_tutorial_data(user_id):
-    content = request.json
+    content = json_body()
     mem_pre_tut = MemPreTutorialData()
     mem_pre_tut.prolificID      = str(content['prolificID'])
     mem_pre_tut.userID      = str(content['userID'])

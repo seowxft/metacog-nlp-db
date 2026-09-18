@@ -2,10 +2,11 @@
 from flask import current_app as app, jsonify, request
 from models import PerQuizTest, BaseObject, db
 from sqlalchemy.sql.expression import func
+from routes.common import json_body
 
-@app.route('/per_quiz_test/<user_id>', methods=['POST', 'GET'])
+@app.route('/per_quiz_test/<user_id>', methods=['POST'])
 def create_per_quiz_test(user_id):
-    content = request.json
+    content = json_body()
     per_quiz = PerQuizTest()
     per_quiz.prolificID      = str(content['prolificID'])
     per_quiz.userID      = str(content['userID'])

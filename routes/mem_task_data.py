@@ -2,10 +2,11 @@
 from flask import current_app as app, jsonify, request
 from models import MemTaskData, BaseObject, db
 from sqlalchemy.sql.expression import func
+from routes.common import json_body
 
-@app.route('/mem_task_data/<user_id>', methods=['POST', 'GET'])
+@app.route('/mem_task_data/<user_id>', methods=['POST'])
 def create_mem_task_data(user_id):
-    content = request.json
+    content = json_body()
     mem_task = MemTaskData()
     mem_task.prolificID      = str(content['prolificID'])
     mem_task.userID      = str(content['userID'])

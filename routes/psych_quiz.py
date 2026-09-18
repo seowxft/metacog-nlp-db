@@ -2,10 +2,11 @@
 from flask import current_app as app, jsonify, request
 from models import PsychQuiz, BaseObject, db
 from sqlalchemy.sql.expression import func
+from routes.common import json_body
 
-@app.route('/psych_quiz/<user_id>', methods=['POST', 'GET'])
+@app.route('/psych_quiz/<user_id>', methods=['POST'])
 def create_psych_data(user_id):
-    content = request.json
+    content = json_body()
     psych_quiz = PsychQuiz()
     psych_quiz.prolificID = str(content['prolificID'])
     psych_quiz.userID = str(content['userID'])

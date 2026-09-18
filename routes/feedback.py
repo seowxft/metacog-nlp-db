@@ -2,10 +2,11 @@
 from flask import current_app as app, jsonify, request
 from models import Feedback, BaseObject, db
 from sqlalchemy.sql.expression import func
+from routes.common import json_body
 
-@app.route('/feedback/<user_id>', methods=['POST', 'GET'])
+@app.route('/feedback/<user_id>', methods=['POST'])
 def create_feedback(user_id):
-    content = request.json
+    content = json_body()
     feedback = Feedback()
     feedback.prolificID  = str(content['prolificID'])
     feedback.userID     = str(content['userID'])
