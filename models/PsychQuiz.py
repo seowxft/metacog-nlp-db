@@ -26,6 +26,8 @@ class PsychQuiz(BaseObject, Model):
     gender           = Column(Text(length=10000))
     PHQ    = Column(Text(length=10000))
     GAD    = Column(Text(length=10000))
+    windowWidth = Column(Text(length=10000))
+    windowHeight = Column(Text(length=10000))
     mouseMovements= Column(Text(length=10000)) 
 
     def get_id(self):
@@ -88,6 +90,12 @@ class PsychQuiz(BaseObject, Model):
     def get_gad(self):
         return str(self.GAD)
 
+    def get_windowWidth(self):
+        return str(self.PHQ)
+
+    def get_windowHeight(self):
+        return str(self.GAD)
+    
     def get_mouseMovements(self):
         return str(self.mouseMovements)
 
