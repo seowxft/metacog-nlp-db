@@ -1,6 +1,7 @@
 """ api errors """
 # coding=utf-8
 import json
+import re
 
 
 class ApiErrors(Exception):
@@ -34,10 +35,10 @@ class ApiErrors(Exception):
             self.addError(field, 'La valeur doit etre superieure a '+str(min))
 
     def checkUnder(self, field, value, max):
-        if value<min:
+        if value<max:
             return True
         else:
-            self.addError(field, 'La valeur doit etre inferieure a '+str(min))
+            self.addError(field, 'La valeur doit etre inferieure a '+str(max))
 
     def checkMinLength(self, field, value, length):
         if len(value)<length:
