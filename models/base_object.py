@@ -3,7 +3,9 @@ from collections import OrderedDict
 from datetime import datetime
 from decimal import Decimal, InvalidOperation
 from pprint import pprint
+import logging
 import re
+import traceback
 #from psycopg2.extras import DateTimeRange
 from sqlalchemy import CHAR,\
                        BigInteger,\
@@ -22,6 +24,8 @@ from models.db import db
 DUPLICATE_KEY_ERROR_CODE = '23505'
 NOT_FOUND_KEY_ERROR_CODE = '23503'
 OBLIGATORY_FIELD_ERROR_CODE = '23502'
+
+logger = logging.getLogger(__name__)
 
 
 def serialize(value, **options):
@@ -56,7 +60,7 @@ class BaseObject():
                     if len(value) > options['cut']:
                         value = value[:options['cut']] + '...'
             if key == 'id' or key.endswith('Id'):
-                result[key] = humanize(value)
+                result[key] = value
                 if options \
                         and 'dehumanize' in options \
                         and options['dehumanize']:
@@ -224,7 +228,7 @@ class BaseObject():
         data = dct.copy()
         if data.__contains__('id'):
             del data['id']
-        cols = self.__class__.__table__.columns._data
+        cols = self.__class__.__table__.columns
         for key in data.keys():
             if (key=='deleted') or (key in skipped_keys):
                 continue
@@ -232,7 +236,7 @@ class BaseObject():
             if cols.__contains__(key):
                 col = cols[key]
                 if key.endswith('Id'):
-                    value = dehumanize(data.get(key))
+                    value = data.get(key)
                 else:
                     value = data.get(key)
                 if isinstance(value, str) and isinstance(col.type, Integer):
@@ -275,15 +279,19 @@ class BaseObject():
         try:
             db.session.commit()
         except DataError as de:
+            db.session.rollback()
             api_errors.addError(*BaseObject.restize_data_error(de))
             raise api_errors
         except IntegrityError as ie:
+            db.session.rollback()
             api_errors.addError(*BaseObject.restize_integrity_error(ie))
             raise api_errors
         except TypeError as te:
+            db.session.rollback()
             api_errors.addError(*BaseObject.restize_type_error(te))
             raise api_errors
         except ValueError as ve:
+            db.session.rollback()
             api_errors.addError(*BaseObject.restize_value_error(ve))
             raise api_errors
 
@@ -302,6 +310,6 @@ class BaseObject():
     def __repr__(self):
         id = "unsaved" \
             if self.id is None \
-            else str(self.id) + "/" + humanize(self.id)
+            else str(self.id)
         return '<%s #%s>' % (self.__class__.__name__,
                              id)
