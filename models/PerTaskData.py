@@ -59,6 +59,10 @@ class PerTaskData(BaseObject, Model):
 
     dotStairLeft     = Column(Text(length=10000))
     dotStairRight  = Column(Text(length=10000))
+
+    leftDotsArray = Column(Text(length=10000))
+    rightDotsArray = Column(Text(length=10000))
+
     mouseMovements =  Column(Text(length=10000))
 
     def get_id(self):
@@ -201,6 +205,12 @@ class PerTaskData(BaseObject, Model):
     def get_dotStairRight(self):
         return str(self.dotStairRight)
 
+    def get_leftDotArray(self):
+        return str(self.leftDotsArray)
+
+    def get_rightDotArray(self):
+        return str(self.rightDotsArray)
+    
     def get_mouseMovements(self):
         return str(self.mouseMovements)
     
