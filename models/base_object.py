@@ -60,7 +60,7 @@ class BaseObject():
                     if len(value) > options['cut']:
                         value = value[:options['cut']] + '...'
             if key == 'id' or key.endswith('Id'):
-                result[key] = humanize(value)
+                result[key] = value
                 if options \
                         and 'dehumanize' in options \
                         and options['dehumanize']:
@@ -228,7 +228,7 @@ class BaseObject():
         data = dct.copy()
         if data.__contains__('id'):
             del data['id']
-        cols = self.__class__.__table__.columns._data
+        cols = self.__class__.__table__.columns
         for key in data.keys():
             if (key=='deleted') or (key in skipped_keys):
                 continue
@@ -236,7 +236,7 @@ class BaseObject():
             if cols.__contains__(key):
                 col = cols[key]
                 if key.endswith('Id'):
-                    value = dehumanize(data.get(key))
+                    value = data.get(key)
                 else:
                     value = data.get(key)
                 if isinstance(value, str) and isinstance(col.type, Integer):
@@ -310,6 +310,6 @@ class BaseObject():
     def __repr__(self):
         id = "unsaved" \
             if self.id is None \
-            else str(self.id) + "/" + humanize(self.id)
+            else str(self.id)
         return '<%s #%s>' % (self.__class__.__name__,
                              id)
