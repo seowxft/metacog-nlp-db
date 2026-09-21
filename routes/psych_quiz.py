@@ -26,6 +26,8 @@ def create_psych_data(user_id):
     psych_quiz.gender = str(content['gender'])
     psych_quiz.PHQ = str(content['PHQ'])
     psych_quiz.GAD = str(content['GAD'])
+    psych_quiz.windowWidth = str(content['windowWidth'])
+    psych_quiz.windowHeight = str(content['windowHeight'])
     psych_quiz.mouseMovements = str(content['mouseMovements'])
 
     BaseObject.check_and_save(psych_quiz)

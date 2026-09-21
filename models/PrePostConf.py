@@ -23,6 +23,8 @@ class PrePostConf(BaseObject, Model):
     confLevel             = Column(Text(length=10000))
     textTime            = Column(Text(length=10000))
     selfKnowledge             = Column(Text(length=10000))
+    windowWidth = Column(Text(length=10000))
+    windowHeight = Column(Text(length=10000))
     mouseMovements =   Column(Text(length=10000))
 
     def get_id(self):
@@ -69,7 +71,13 @@ class PrePostConf(BaseObject, Model):
 
     def get_selfKnowledge(self):
         return str(self.selfKnowledge)
-    
+
+    def get_windowWidth(self):
+        return str(self.windowWidth)
+
+    def get_windowHeight(self):
+        return str(self.windowHeight)
+
     def get_mouseMovements(self):
         return str(self.mouseMovements)
     

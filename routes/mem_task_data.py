@@ -67,6 +67,8 @@ def create_mem_task_data(user_id):
     mem_task.choiceShownWordLeft  = str(content['choiceShownWordLeft'])
     mem_task.choiceShownWordRight     = str(content['choiceShownWordRight'])
 
+    mem_task.windowWidth = str(content['windowWidth'])
+    mem_task.windowHeight = str(content['windowHeight'])
     mem_task.mouseMovements     = str(content['mouseMovements'])
 
     BaseObject.check_and_save(mem_task)

@@ -63,6 +63,8 @@ class PerTaskData(BaseObject, Model):
     leftDotsArray = Column(Text(length=10000))
     rightDotsArray = Column(Text(length=10000))
 
+    windowWidth = Column(Text(length=10000))
+    windowHeight = Column(Text(length=10000))
     mouseMovements =  Column(Text(length=10000))
 
     def get_id(self):
@@ -210,6 +212,12 @@ class PerTaskData(BaseObject, Model):
 
     def get_rightDotArray(self):
         return str(self.rightDotsArray)
+
+    def get_windowWidth(self):
+        return str(self.windowWidth)
+
+    def get_windowHeight(self):
+        return str(self.windowHeight)
     
     def get_mouseMovements(self):
         return str(self.mouseMovements)

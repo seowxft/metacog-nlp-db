@@ -91,10 +91,10 @@ class PsychQuiz(BaseObject, Model):
         return str(self.GAD)
 
     def get_windowWidth(self):
-        return str(self.PHQ)
+        return str(self.windowWidth)
 
     def get_windowHeight(self):
-        return str(self.GAD)
+        return str(self.windowHeight)
     
     def get_mouseMovements(self):
         return str(self.mouseMovements)

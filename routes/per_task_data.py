@@ -64,6 +64,8 @@ def create_per_task_data(user_id):
     per_task.leftDotsArray     = str(content['leftDotsArray'])
     per_task.rightDotsArray  = str(content['rightDotsArray'])
 
+    per_task.windowWidth = str(content['windowWidth'])
+    per_task.windowHeight = str(content['windowHeight'])
     per_task.mouseMovements  = str(content['mouseMovements'])
 
     BaseObject.check_and_save(per_task)

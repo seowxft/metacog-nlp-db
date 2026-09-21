@@ -67,6 +67,8 @@ class MemTaskData(BaseObject, Model):
     choiceShownWordLeft= Column(Text(length=10000))
     choiceShownWordRight= Column(Text(length=10000))
 
+    windowWidth = Column(Text(length=10000))
+    windowHeight = Column(Text(length=10000))
     mouseMovements= Column(Text(length=10000))
 
     def get_id(self):
@@ -222,6 +224,12 @@ class MemTaskData(BaseObject, Model):
     def get_choiceShownWordRight(self):
         return str(self.choiceShownWordRight)
 
+    def get_windowWidth(self):
+        return str(self.windowWidth)
+
+    def get_windowHeight(self):
+        return str(self.windowHeight)
+    
     def get_mouseMovements(self):
         return str(self.mouseMovements)
     
