@@ -47,12 +47,14 @@ class PerTutorialData(BaseObject, Model):
     correctMatEasy        = Column(Text(length=10000))
     correctPerEasy     = Column(Text(length=10000))
     responseMatrixEasy     = Column(Text(length=10000))
+    stairCountEasy = Column(Text(length=10000))
     stairDirEasy   = Column(Text(length=10000))
     dotStairEasy      = Column(Text(length=10000))
 
     correctMatHard      = Column(Text(length=10000))
     correctPerHard       = Column(Text(length=10000))
     responseMatrixHard     = Column(Text(length=10000))
+    stairCountHard = Column(Text(length=10000))
     stairDirHard     = Column(Text(length=10000))
     dotStairHard         = Column(Text(length=10000))
 
@@ -173,6 +175,9 @@ class PerTutorialData(BaseObject, Model):
     def get_responseMatrixEasy(self):
         return str(self.responseMatrixEasy)
 
+    def get_stairCountEasy(self):
+        return str(self.stairCountEasy)
+    
     def get_stairDirEasy(self):
         return str(self.stairDirEasy)
 
@@ -188,6 +193,9 @@ class PerTutorialData(BaseObject, Model):
     def get_responseMatrixHard(self):
         return str(self.responseMatrixHard)
 
+    def get_stairCountHard(self):
+        return str(self.stairCountHard)
+    
     def get_stairDirHard(self):
         return str(self.stairDirHard)
 

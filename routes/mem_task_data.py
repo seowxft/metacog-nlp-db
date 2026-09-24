@@ -51,12 +51,14 @@ def create_mem_task_data(user_id):
     mem_task.correctMatEasy = str(content.get('correctMatEasy'))
     mem_task.correctPerEasy = str(content.get('correctPerEasy'))
     mem_task.responseMatrixEasy  = str(content.get('responseMatrixEasy'))
+    mem_task.stairCountEasy  = str(content.get('stairCountEasy'))
     mem_task.stairDirEasy  = str(content.get('stairDirEasy'))
 
     mem_task.stimNumHard  = str(content.get('stimNumHard'))
     mem_task.correctMatHard  = str(content.get('correctMatHard'))
     mem_task.correctPerHard = str(content.get('correctPerHard'))
     mem_task.responseMatrixHard     = str(content.get('responseMatrixHard'))
+    mem_task.stairCountHard  = str(content.get('stairCountHard'))
     mem_task.stairDirHard     = str(content.get('stairDirHard'))
   
     mem_task.stimPick    = str(content.get('stimPick'))

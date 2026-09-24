@@ -46,12 +46,14 @@ def create_mem_tutorial_data(user_id):
     mem_tut.correctMatEasy = str(content.get('correctMatEasy'))
     mem_tut.correctPerEasy = str(content.get('correctPerEasy'))
     mem_tut.responseMatrixEasy  = str(content.get('responseMatrixEasy'))
+    mem_tut.stairCountEasy  = str(content.get('stairCountEasy'))
     mem_tut.stairDirEasy  = str(content.get('stairDirEasy'))
 
     mem_tut.stimNumHard  = str(content.get('stimNumHard'))
     mem_tut.correctMatHard  = str(content.get('correctMatHard'))
     mem_tut.correctPerHard = str(content.get('correctPerHard'))
     mem_tut.responseMatrixHard     = str(content.get('responseMatrixHard'))
+    mem_tut.stairCountHard  = str(content.get('stairCountHard'))
     mem_tut.stairDirHard     = str(content.get('stairDirHard'))
 
     mem_tut.stimPick  = str(content.get('stimPick'))

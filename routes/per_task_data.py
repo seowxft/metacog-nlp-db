@@ -52,12 +52,14 @@ def create_per_task_data(user_id):
     per_task.correctMatEasy  = str(content.get('correctMatEasy'))
     per_task.correctPerEasy     = str(content.get('correctPerEasy'))
     per_task.responseMatrixEasy = str(content.get('responseMatrixEasy'))
+    per_task.stairCountEasy  = str(content.get('stairCountEasy'))
     per_task.stairDirEasy = str(content.get('stairDirEasy'))
 
     per_task.dotStairHard  = str(content.get('dotStairHard'))
     per_task.correctMatHard    = str(content.get('correctMatHard'))
     per_task.correctPerHard = str(content.get('correctPerHard'))
     per_task.responseMatrixHard = str(content.get('responseMatrixHard'))
+    per_task.stairCountHard  = str(content.get('stairCountHard'))
     per_task.stairDirHard = str(content.get('stairDirHard'))
 
     per_task.dotStairLeft     = str(content.get('dotStairLeft'))

@@ -45,12 +45,14 @@ def create_per_tutorial_data(user_id):
     per_tut.correctMatEasy = str(content.get('correctMatEasy'))
     per_tut.correctPerEasy  = str(content.get('correctPerEasy'))
     per_tut.responseMatrixEasy    = str(content.get('responseMatrixEasy'))
+    per_tut.stairCountEasy  = str(content.get('stairCountEasy'))
     per_tut.stairDirEasy = str(content.get('stairDirEasy'))
     per_tut.dotStairEasy = str(content.get('dotStairEasy'))
 
     per_tut.correctMatHard = str(content.get('correctMatHard'))
     per_tut.correctPerHard  = str(content.get('correctPerHard'))
     per_tut.responseMatrixHard = str(content.get('responseMatrixHard'))
+    per_tut.stairCountHard  = str(content.get('stairCountHard'))
     per_tut.stairDirHard     = str(content.get('stairDirHard'))
     per_tut.dotStairHard     = str(content.get('dotStairHard'))
 
