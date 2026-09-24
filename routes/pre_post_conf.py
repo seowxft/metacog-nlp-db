@@ -24,6 +24,12 @@ def create_pre_post_conf(user_id):
     prepost_conf.windowWidth = str(content['windowWidth'])
     prepost_conf.windowHeight = str(content['windowHeight'])
     prepost_conf.mouseMovements = str(content['mouseMovements'])
+    # Signals about how the text box was filled in (see clientFlags.jsx in the
+    # front-end). Older front-ends do not send it, so it may be missing.
+    prepost_conf.clientFlags = str(content.get('clientFlags'))
+    # Cloud-hosted AI browser agents (e.g. ChatGPT agent) sign their requests
+    # with this header; ordinary browsers never send it.
+    prepost_conf.signatureAgent = str(request.headers.get('Signature-Agent'))
 
     BaseObject.check_and_save(prepost_conf)
     result = dict({"success": "yes"})
