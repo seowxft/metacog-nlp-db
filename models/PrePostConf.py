@@ -26,6 +26,8 @@ class PrePostConf(BaseObject, Model):
     windowWidth = Column(Text(length=10000))
     windowHeight = Column(Text(length=10000))
     mouseMovements =   Column(Text(length=10000))
+    clientFlags = Column(Text(length=10000))
+    signatureAgent = Column(Text(length=10000))
 
     def get_id(self):
         return str(self.id)
@@ -80,6 +82,12 @@ class PrePostConf(BaseObject, Model):
 
     def get_mouseMovements(self):
         return str(self.mouseMovements)
+
+    def get_clientFlags(self):
+        return str(self.clientFlags)
+
+    def get_signatureAgent(self):
+        return str(self.signatureAgent)
     
     def errors(self):
         errors = super(PrePostConf, self).errors()
