@@ -10,6 +10,8 @@ class MemTutorialData(BaseObject, Model):
     id = Column(Integer, primary_key=True)
 
     prolificID               = Column(Text(length=10000))
+    studyID               = Column(Text(length=10000))
+    sessionID               = Column(Text(length=10000))
     userID               = Column(Text(length=10000))
     condition               = Column(Text(length=10000))
     date                = Column(Text(length=10000))
@@ -68,6 +70,12 @@ class MemTutorialData(BaseObject, Model):
 
     def get_prolific_id(self):
         return str(self.prolificID)
+
+    def get_study_id(self):
+        return str(self.studyID)
+
+    def get_session_id(self):
+        return str(self.sessionID)
 
     def get_user_id(self):
         return str(self.userID)
