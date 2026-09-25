@@ -26,7 +26,7 @@ def create_pre_post_conf(user_id):
     prepost_conf.windowWidth = str(content.get('windowWidth'))
     prepost_conf.windowHeight = str(content.get('windowHeight'))
     prepost_conf.mouseMovements = str(content.get('mouseMovements'))
-    prepost_conf.clientFlags = str(content.get.get('clientFlags'))
+    prepost_conf.clientFlags = str(content.get('clientFlags'))
     prepost_conf.signatureAgent = str(request.headers.get('Signature-Agent'))
 
     BaseObject.check_and_save(prepost_conf)
